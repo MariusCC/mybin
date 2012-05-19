@@ -1,0 +1,3 @@
+gksu mount /media/storage
+nautilus -n /media/storage/
+

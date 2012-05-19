@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /usr/src/v4l-dvb
+make distclean
+make
+make install

@@ -1,0 +1,3 @@
+#!/bin/bash
+#mplayer -vo xv -display :0.1 -fs −forceidx -softvol -ao pulse −ontop $1
+mplayer -vo gl:yuv=4 -display :0.1 -fs −forceidx -softvol -ao pulse −ontop $1

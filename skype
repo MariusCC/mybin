@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#use webcam via v4l
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH":/usr/lib32/"
+export LD_PRELOAD=/usr/lib32/libv4l/v4l1compat.so 
+/usr/bin/skype

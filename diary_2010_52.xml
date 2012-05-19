@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Rachota 2.1 diary file - editing not recommended
+    Mon Dec 20 22:31:26 EET 2010
+-->
+<!DOCTYPE week SYSTEM "diary.dtd">
+
+<week year="2010" id="52">
+    <day id="2" start="00:00" finish="00:00">
+        <task state="1" duration="00:00:49">
+            <priority>2</priority>
+            <description>Idle time</description>
+            <keyword>idle</keyword>
+            <notes>Time spent when no task was measured.</notes>
+            <idle/>
+        </task>
+    </day>
+</week>

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wget -t 20 -xrkbcp -np -l 2 -a /home/marius/tmp/download_`date +%Y%b%d__%X`.log $1
+

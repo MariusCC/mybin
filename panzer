@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# IEs 4 Linux script to run ie6 - http://tatanka.com.br/ies4linux
+
+cd
+export WINEPREFIX="/home/marius/tmp/panzer2/panzer2.exe"
+
+wine "/home/marius/tmp/panzer2/panzer2.exe" >/dev/null 2>&1 &
+
+

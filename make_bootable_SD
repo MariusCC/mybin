@@ -1,0 +1,19 @@
+#!/bin/bash
+DEV=$1
+if [[ -z "${DEV}" ]]
+then
+   echo "Usage: $0 partition"
+   exit 1
+fi
+dd if=${DEV} of=1.tmp.bin bs=64 count=1
+echo "BOOTDISK" > 2.tmp
+dd  if=2.tmp of=2.tmp.bin bs=8 count=1
+rm 2.tmp
+#512-64-8=440
+dd if=${DEV} of=3.tmp.bin skip=9 bs=8 count=55
+cat 1.tmp.bin 2.tmp.bin 3.tmp.bin > bootable.bin
+rm 1.tmp.bin
+rm 2.tmp.bin
+rm 3.tmp.bin
+dd if=bootable.bin of=${DEV} bs=512 count=1
+rm bootable.bin

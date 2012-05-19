@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/cdrecord -v gracetime=2 dev=/dev/scd0 speed=8 -tao driveropts=burnfree -eject -data $1

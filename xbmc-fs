@@ -1,0 +1,42 @@
+#! /usr/bin/env bash 
+# Launch XBMC in windowed mode, then use wmctrl to remove the titlebar
+
+if [ `ps -fe|grep xbmc.bin|grep -v grep|wc -l` = 1 ]; then
+    exit 1
+fi
+
+# Select display 1
+DISPLAY=`echo $DISPLAY | awk 'BEGIN { FS = "." } { print $1 "." $2 + 1}'`
+xset s activate
+xset s off
+
+#disable screensaver
+gconftool-2 --set /apps/gnome-screensaver/idle_activation_enabled --type bool 0
+
+# Start XBMC without blocking this script
+xbmc &
+
+# Wait for the XBMC window to appear
+status=0
+while [ $status -eq 0 ]
+do
+	sleep 1
+	status=`wmctrl -x -l | grep "XBMC Media Center" | wc -l | awk '{print $1}'`
+done
+
+# Force XBMC window to fullscreen
+wmctrl -x -r XBMC Media Center.XBMC Media Center -b toggle,fullscreen
+
+#set audio to HDMI
+
+#wait for xbmc to exit and set audio to 5.1
+status=1
+while [ $status -eq 1 ]
+do
+    sleep 60
+    status=`ps -fe|grep xbmc.bin|grep -v grep|wc -l`
+done
+
+#reenable screensaver
+gconftool-2 --set /apps/gnome-screensaver/idle_activation_enabled --type bool 1
+

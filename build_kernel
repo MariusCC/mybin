@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -d /usr/src/linux ]; then
+    cd /usr/src/linux
+fi
+
+if [ -f .config ];then
+    mv .config .config.bak
+fi
+cp /root/.config.athlon64X24GB .config
+make menuconfig && make-kpkg clean && fakeroot make-kpkg --initrd kernel_image kernel_headers

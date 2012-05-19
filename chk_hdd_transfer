@@ -1,0 +1,17 @@
+#!/bin/bash
+count=0
+dev=$1
+maxcount=$2
+cachespeed=0
+bufferspeed=0
+
+while [ $count -lt $maxcount ]; do
+    speed=$(hdparm -T $dev| grep cache| awk '{print $10}'|sed 's/\.\w\w//')
+    cachespeed=$[ $cachespeed + $speed ]
+    speed=$(hdparm -t $dev | grep buffer| awk '{print $11}'|sed 's/\.\w\w//')
+    bufferspeed=$[ $bufferspeed + $speed ]
+    count=$[ $count+1 ]
+done
+
+echo Timing cached reads: $(($cachespeed/$maxcount))
+echo Timing buffered disk reads: $(($bufferspeed/$maxcount))

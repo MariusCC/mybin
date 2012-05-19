@@ -1,0 +1,2 @@
+cd /home/marius/bin/
+java -jar rachota_23.jar -userdir=/home/marius/profile/timetracker/
