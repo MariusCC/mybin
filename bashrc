@@ -90,6 +90,7 @@ alias root='sudo su'
 alias rodnassh='ssh root@192.168.1.1 -p 222'
 
 alias gcal='google calendar'
+alias gvim='gvim -geometry 500x500'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
