@@ -98,8 +98,7 @@ if has("gui_running")
     set guioptions+=aegmrL
     let &guioptions = substitute(&guioptions, "t", "", "g")
     " Make window height VERY large so they always maximise on window switch
-    set winheight=9999
-    set winwidth=9999
+    set lines=999 columns=999
 else
     " This is console Vim.
     if exists("+lines")
@@ -252,3 +251,6 @@ highlight Pmenu guibg=brown gui=bold
 "vim-task
 inoremap <silent> <buffer> <C-Space> <ESC> :call Toggle_task_status()<CR>i
 noremap <silent> <buffer> <C-Space> :call Toggle_task_status()<CR>
+" this lets us put the marker in the file so that
+" it can be shared across and stored in version control.
+"set foldmethod=marker
