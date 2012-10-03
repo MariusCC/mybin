@@ -61,6 +61,7 @@ set statusline+=[%02Bh]  "char hex value
 set statusline+=[%l,%c%V] "line num and column num
 set statusline+=[%P]      "percentage
 "set grepprg=grep -n
+set clipboard=unnamed "have Vim use the clipboard instead of the default register for yanking, putting
 
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
@@ -214,6 +215,11 @@ endif " has("autocmd")
 "
 " MAPPINGS
 "
+"map copy/paste
+nmap <S-Insert> "+gP
+imap <S-Insert> <ESC><S-Insert>i
+vmap <C-Insert> "+y
+
 let mapleader = ","
 "map F5 on make
 map <buffer> <F5> :Make<cr><C-w><Up>
